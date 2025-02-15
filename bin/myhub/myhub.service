@@ -1,0 +1,12 @@
+[Unit]
+Description=myHub
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5s
+ExecStart=/root/build/myhub --config-file /var/www/myhub/config.yml
+
+[Install]
+WantedBy=multi-user.target
