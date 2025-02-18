@@ -26,7 +26,7 @@ func New(ctx context.Context, configuration *config.Config) (*Container, error) 
 	var err error
 
 	if configuration.Database.Host != "" {
-		c.Pool, err = postgres.NewPool(c.Context(), &configuration.Database)
+		c.Pool, err = postgres.NewPoolSqlx(c.Context(), &configuration.Database)
 		if err != nil {
 			return nil, err
 		}
